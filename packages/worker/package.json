@@ -1,0 +1,25 @@
+{
+  "name": "@sfpy-cli/worker",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Safepay MCP server on Cloudflare Workers, deployed with Alchemy",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "deploy": "alchemy deploy",
+    "destroy": "alchemy destroy"
+  },
+  "dependencies": {
+    "@sfpy-cli/core": "workspace:*",
+    "@sfpy-cli/mcp": "workspace:*",
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@alchemy.run/cloudflare": "2.0.0-beta.85",
+    "@cloudflare/workers-types": "5.20261103.1",
+    "@effect/platform-bun": "catalog:",
+    "@effect/platform-node": "^4.1.1",
+    "alchemy": "2.0.0-beta.85",
+    "vite-plus": "catalog:"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "sfpy-cli",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "ready": "vp check && vp run -r test && vp run -r build",
+    "dev": "vp run sfpy#dev",
+    "prepare": "vp config"
+  },
+  "devDependencies": {
+    "vite": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "overrides": {
+    "vite": "catalog:",
+    "vitest": "5.0.5"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "bun",
+      "version": "1.4.4",
+      "onFail": "download"
+    }
+  },
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "catalog": {
+    "@effect/platform-bun": "^4.1.1",
+    "@effect/vitest": "4.1.1",
+    "@types/bun": "^1.4.4",
+    "effect": "^4.1.1",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite-plus": "1.4.0"
+  }
+}

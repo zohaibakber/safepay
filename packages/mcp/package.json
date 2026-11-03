@@ -1,0 +1,23 @@
+{
+  "name": "@sfpy-cli/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Safepay tools for Model Context Protocol servers",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./*": "./src/*.ts"
+  },
+  "scripts": {
+    "test": "vp test"
+  },
+  "dependencies": {
+    "@sfpy-cli/core": "workspace:*",
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "@types/bun": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "sfpy",
+  "version": "0.0.0",
+  "description": "Safepay payments CLI and MCP server",
+  "license": "MIT",
+  "bin": {
+    "sfpy": "./dist/sfpy"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "bun build --compile --target=bun --outfile=dist/sfpy src/index.ts",
+    "dev": "bun --env-file=../../.env src/index.ts",
+    "test": "vp test"
+  },
+  "dependencies": {
+    "@effect/platform-bun": "catalog:",
+    "@sfpy-cli/core": "workspace:*",
+    "@sfpy-cli/mcp": "workspace:*",
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "@types/bun": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}
