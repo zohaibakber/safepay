@@ -2,16 +2,25 @@
   "name": "@sfpy-cli/mcp",
   "version": "0.0.0",
   "private": true,
-  "description": "Safepay tools for Model Context Protocol servers",
+  "description": "Safepay MCP server",
   "license": "MIT",
+  "bin": {
+    "sfpy-mcp": "./dist/sfpy-mcp"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "exports": {
     "./*": "./src/*.ts"
   },
   "scripts": {
+    "build": "bun build --compile --target=bun --outfile=dist/sfpy-mcp src/bin.ts",
+    "dev": "bun --env-file=../../.env src/bin.ts",
     "test": "vp test"
   },
   "dependencies": {
+    "@effect/platform-bun": "catalog:",
     "@sfpy-cli/core": "workspace:*",
     "effect": "catalog:"
   },

@@ -1,6 +1,6 @@
 # sfpy
 
-Command-line tool and MCP server for the [Safepay](https://apidocs.getsafepay.com/) merchant API. Built with Effect and Vite+.
+`sfpy` is the command-line tool for the [Safepay](https://apidocs.getsafepay.com/) merchant API. `sfpy-mcp` is the MCP server. Both live in this repo and call `@sfpy-cli/core`. Built with Effect and Vite+.
 
 ## Configure
 
@@ -85,9 +85,11 @@ sfpy api POST /some/path --data '{"key":"value"}'
 
 ## MCP server
 
+`sfpy-mcp` reads the same `SAFEPAY_API_KEY`, `SAFEPAY_SECRET_KEY`, and `SAFEPAY_ENVIRONMENT` variables. `--env` overrides the environment.
+
 ```bash
-claude mcp add safepay -- sfpy mcp
-claude mcp add safepay -- sfpy mcp --allow-writes
+claude mcp add safepay -- sfpy-mcp
+claude mcp add safepay -- sfpy-mcp --allow-writes
 ```
 
 The default server can look up payments, customers, saved cards, Quick Links, plans, subscriptions, and transactions. It can also create checkouts and Quick Links, which move no money until someone pays.
@@ -115,9 +117,9 @@ claude mcp add --transport http safepay https://<worker-url>/mcp \
 ## Packages
 
 - `@sfpy-cli/core` is the Effect client for the Safepay merchant API, plus webhook signing.
-- `@sfpy-cli/mcp` registers Safepay tools on an Effect MCP server.
-- `sfpy` is the CLI. Its build bundles both workspace packages.
-- `@sfpy-cli/worker` deploys the MCP server to Cloudflare Workers with Alchemy.
+- `sfpy` is the CLI. Its build bundles the client.
+- `@sfpy-cli/mcp` registers Safepay tools on an Effect MCP server. `sfpy-mcp` is its executable.
+- `@sfpy-cli/worker` deploys that same server to Cloudflare Workers with Alchemy.
 
 ## Development
 
@@ -127,4 +129,4 @@ vp run dev -- payments --help
 vp run ready   # check, test, build
 ```
 
-The build writes `packages/cli/dist/sfpy`, one executable for the machine that compiled it. That file includes the Bun runtime.
+The build writes `packages/cli/dist/sfpy` and `packages/mcp/dist/sfpy-mcp`, one executable each for the machine that compiled it. Those files include the Bun runtime.

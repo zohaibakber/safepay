@@ -18,7 +18,6 @@
       "dependencies": {
         "@effect/platform-bun": "catalog:",
         "@sfpy-cli/core": "workspace:*",
-        "@sfpy-cli/mcp": "workspace:*",
         "effect": "catalog:",
       },
       "devDependencies": {
@@ -42,7 +41,11 @@
     "packages/mcp": {
       "name": "@sfpy-cli/mcp",
       "version": "0.0.0",
+      "bin": {
+        "sfpy-mcp": "./dist/sfpy-mcp",
+      },
       "dependencies": {
+        "@effect/platform-bun": "catalog:",
         "@sfpy-cli/core": "workspace:*",
         "effect": "catalog:",
       },

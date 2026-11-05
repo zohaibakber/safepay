@@ -2,7 +2,6 @@ import { Command } from "effect/cli";
 import { api } from "./api.ts";
 import { customers } from "./customers.ts";
 import { links } from "./links.ts";
-import { mcp } from "./mcp.ts";
 import { payments } from "./payments.ts";
 import { plans } from "./plans.ts";
 import { subscriptions } from "./subscriptions.ts";
@@ -20,6 +19,5 @@ export const cli = root.pipe(
     transactions,
     webhooks,
     api,
-    mcp,
   ]),
 );
